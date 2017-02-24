@@ -10,8 +10,8 @@ AUTH_TOKEN = 'dc43003c977409f3412be46cea0fa5c8'
 # TwiML app outgoing connections will use
 APP_SID = 'PN527d4b883ec6a2e743e4697ba81eb3bc'
 
-CALLER_ID = '+919637793593'
-CLIENT = 'saru'
+CALLER_ID = '+12345678901'
+CLIENT = 'jenny'
 
 app = Flask(__name__)
 
@@ -42,7 +42,8 @@ def call():
   """        2. To value specifies target. When call is coming """
   """           from PSTN, To value is ignored and call is     """
   """           routed to client named CLIENT                  """
-  resp = twilio.twiml.Response()  
+  resp = twilio.twiml.Response()
+  print(resp)
   from_value = request.values.get('From')
   to = request.values.get('To')
   if not (from_value and to):
@@ -69,4 +70,4 @@ def welcome():
 
 if __name__ == "__main__":
   port = int(os.environ.get("PORT", 5000))
-  app.run(host='0.0.0.0', port=port, debug=False)
+  app.run(host='0.0.0.0', port=port, debug=True)
