@@ -48,7 +48,7 @@ def call():
   resp = twilio.twiml.Response()  
   from_value = request.values.get('From')
   print "sarufrom"
-  print (from_value)
+  print (request.values)
   to = request.values.get('To')
   print "saruto"
   print (to)
