@@ -22,7 +22,6 @@ def token():
   app_sid = os.environ.get("APP_SID", APP_SID)
 
   capability = TwilioCapability(account_sid, auth_token)
-  print(capability.generate())
 
   # This allows outgoing connections to TwiML application
   if request.values.get('allowOutgoing') != 'false':
@@ -35,6 +34,8 @@ def token():
     capability.allow_client_incoming(client)
 
   # This returns a token to use with Twilio based on the account and capabilities defined above
+
+  print(capability.generate())
   return capability.generate()
 
 @app.route('/call', methods=['GET', 'POST'])
