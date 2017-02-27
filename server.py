@@ -10,7 +10,7 @@ AUTH_TOKEN = 'dc43003c977409f3412be46cea0fa5c8'
 # TwiML app outgoing connections will use
 APP_SID = 'PN527d4b883ec6a2e743e4697ba81eb3bc'
 
-CALLER_ID = '+12345678901'
+CALLER_ID = '+919637793593'
 CLIENT = 'jenny'
 
 app = Flask(__name__)
@@ -29,6 +29,7 @@ def token():
 
   # This allows incoming connections to client (if specified)
   client = request.values.get('client')
+  print ("heloo"+client)
   if client != None:
     capability.allow_client_incoming(client)
 
@@ -42,8 +43,7 @@ def call():
   """        2. To value specifies target. When call is coming """
   """           from PSTN, To value is ignored and call is     """
   """           routed to client named CLIENT                  """
-  resp = twilio.twiml.Response()
-  print(str(resp))
+  resp = twilio.twiml.Response()  
   from_value = request.values.get('From')
   to = request.values.get('To')
   if not (from_value and to):
