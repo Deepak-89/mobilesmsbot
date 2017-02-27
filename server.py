@@ -45,6 +45,7 @@ def call():
   """           routed to client named CLIENT                  """
   resp = twilio.twiml.Response()  
   from_value = request.values.get('From')
+  print (from_value+"saru from")
   to = request.values.get('To')
   if not (from_value and to):
     resp.say("Message without number")
