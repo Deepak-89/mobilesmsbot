@@ -46,7 +46,7 @@ def call():
   """           from PSTN, To value is ignored and call is     """
   """           routed to client named CLIENT                  """
   resp = twilio.twiml.Response()  
-  from_value = request.args.get('From')
+  from_value = request.values.get('From')
   print "sarufrom"
   print (from_value)
   to = request.values.get('To')
