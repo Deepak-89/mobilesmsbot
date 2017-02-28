@@ -52,6 +52,9 @@ def call():
   to = request.values.get('To')
   print "saruto"
   print (to)
+  data = request.values.get('body')
+  print "sarudata"
+  print data
   if not (from_value and to):
     resp.say("Message without number")
     return str(resp)
