@@ -28,8 +28,7 @@ def token():
      capability.allow_client_outgoing(app_sid)
 
   # This allows incoming connections to client (if specified)
-  client = request.values.get('body')
-  print client
+  client = request.values.get('client')
  
   if client != None:
     capability.allow_client_incoming(client)
@@ -47,9 +46,9 @@ def call():
   """           from PSTN, To value is ignored and call is     """
   """           routed to client named CLIENT                  """
   resp = twilio.twiml.Response()  
-  from_value = request.values.get('From')
+  from_value = request.args.get('From')
   print "sarufrom"
-  print (request.values)
+  print (from_value)
   to = request.values.get('To')
   print "saruto"
   print (to)
