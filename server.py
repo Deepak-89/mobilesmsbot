@@ -3,6 +3,18 @@ from flask import Flask, request
 from twilio.util import TwilioCapability
 import twilio.twiml
 
+import requests
+import urllib2
+import uuid
+
+try:
+    import apiai
+except ImportError:
+    sys.path.append(
+        os.path.join(os.path.dirname(os.path.realpath(__file__)), os.pardir)
+    )
+    import apiai
+
 # Account Sid and Auth Token can be found in your account dashboard
 ACCOUNT_SID = 'AC074af63c54728717d600a7b2641a1d72'
 AUTH_TOKEN = 'dc43003c977409f3412be46cea0fa5c8'
@@ -13,7 +25,32 @@ APP_SID = 'PN527d4b883ec6a2e743e4697ba81eb3bc'
 CALLER_ID = '+919637793593'
 CLIENT = 'jenny'
 
+#app = Flask(__name__)
+
 app = Flask(__name__)
+CLIENT_ACCESS_TOKEN = '02c71e6097984c9691f891e0f63a0c14'
+
+#@app.route('/GetMethod', methods=['Get'])
+def GetMethod(strUserQuery):
+    ai = apiai.ApiAI(CLIENT_ACCESS_TOKEN)
+
+    request = ai.text_request()
+
+    #request.lang = 'de'  # optional, default value equal 'en'
+
+    request.session_id = str(uuid.uuid4())
+
+    request.query = str(strUserQuery)
+
+    response = request.getresponse()
+    
+    strResponse =  str(response.read())
+    
+    print("GetMethodResponse")
+
+    print (strResponse)
+    
+    return strResponse
 
 @app.route('/token')
 def token():
@@ -55,6 +92,11 @@ def call():
   data = request.values.get('body')
   print "sarudata"
   print data
+  strResponse = GetMethod(data)
+  print("After GetMethod")
+  response = ProcessAPIAIResponse(strResponse)
+  print response
+  
   if not (from_value and to):
     resp.say("Message without number")
     return str(resp)
@@ -70,6 +112,15 @@ def call():
     # client -> PSTN
     resp.dial(to, callerId=caller_id)
   return str(resp)
+
+def ProcessAPIAIResponse(strResponse):
+    data = json.loads(strResponse)
+    print data
+##    for entry in data["result"]:
+    action = data["result"]["action"]
+    if "APIAIBranchAction" in action:
+        return "branch_locate"
+    return ""
 
 @app.route('/', methods=['GET', 'POST'])
 def welcome():
