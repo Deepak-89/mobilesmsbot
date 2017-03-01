@@ -101,7 +101,7 @@ def call():
   if not (from_value and to):
     resp.say("Message without number")
     return str(resp)
-  if (data!=null):
+  if (data!=0):
     resp.say(data)
     return str(resp)
   from_client = from_value.startswith('client')
