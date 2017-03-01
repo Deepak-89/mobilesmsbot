@@ -1,4 +1,5 @@
 import os
+import json
 from flask import Flask, request
 from twilio.util import TwilioCapability
 import twilio.twiml
@@ -114,12 +115,12 @@ def call():
   return str(resp)
 
 def ProcessAPIAIResponse(strResponse):
-    data = json.loads(strResponse)
-    print data
+    data1 = json.loads(strResponse)
+    print data1
 ##    for entry in data["result"]:
-    action = data["result"]["action"]
+    action = data1["result"]["action"]
     if "APIAIBranchAction" in action:
-        return "branch_locate"
+        return "Got baranch"
     return ""
 
 @app.route('/', methods=['GET', 'POST'])
