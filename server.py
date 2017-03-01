@@ -102,7 +102,7 @@ def call():
     resp.say("Message without number")
     return str(resp)
   if (data!=0):
-    resp.say(data)
+    resp.say(response)
     return str(resp)
   from_client = from_value.startswith('client')
   caller_id = os.environ.get("CALLER_ID", CALLER_ID)
