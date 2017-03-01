@@ -8,3 +8,5 @@ six==1.8.0
 twilio==3.6.9
 wsgiref==0.1.2
 requests==2.10.0
+numpy==1.12.0b1
+apiai==1.2.1
