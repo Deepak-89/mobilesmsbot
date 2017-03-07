@@ -129,6 +129,8 @@ def ProcessAPIAIResponse(strResponse):
         return "transaction amount $170.26"
     elif "card.details" in action:
         return "Card has been activated"
+    elif "APIbalancecheck" in action:
+        return "Your Checking Balnace: $1234.67"
     
     return "How may i Help you?"
 
