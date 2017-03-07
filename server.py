@@ -129,8 +129,8 @@ def ProcessAPIAIResponse(strResponse):
         return "transaction amount $170.26"
     elif "card.details" in action:
         return "Card has been activated"
-    
-    return "null"
+    elif ""
+    return "How may i Help you?"
 
 @app.route('/', methods=['GET', 'POST'])
 def welcome():
