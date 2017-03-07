@@ -124,9 +124,10 @@ def ProcessAPIAIResponse(strResponse):
     action = data1["result"]["action"]
     if "APIAIBranchAction" in action:
         return "Got 5 branches"
-    return ""
-    if "APItransactiondetail" in action:
-        return "Your Last transaction amount $170.26"
+    
+    elif "APItransactiondetail" in action:
+        return "transaction amount $170.26"
+    return "null"
 
 @app.route('/', methods=['GET', 'POST'])
 def welcome():
