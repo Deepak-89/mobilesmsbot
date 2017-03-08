@@ -1,3 +1,4 @@
+
 import os
 import json
 from flask import Flask, request
@@ -124,10 +125,9 @@ def ProcessAPIAIResponse(strResponse):
     action = data1["result"]["action"]
     if "APIAIBranchAction" in action:
         return "Got 5 branches"
-    
     elif "APItransactiondetail" in action:
         return "transaction amount $170.26"
-    elif "card.details" in action:
+    elif "APIcarddetails" in action:
         return "Card has been activated"
     elif "APIbalancecheck" in action:
         return "Your Checking Balnace: $1234.67"
