@@ -2,7 +2,7 @@
 
 import os
 import json
-from flask import Flask, request
+from flask import Flask, request,redirect
 from twilio.util import TwilioCapability
 import twilio.twiml
 
@@ -99,7 +99,7 @@ def call():
   data = request.values.get('Body')
   #body_value = request.values.get('Body', None)
   print "sarudata"
-  print data
+  print data.encode('utf-8')   
   print "stopdata"
   #print body_value
   strResponse = GetMethod(data)
