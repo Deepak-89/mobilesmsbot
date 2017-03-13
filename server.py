@@ -5,7 +5,6 @@ import json
 from flask import Flask, request
 from twilio.util import TwilioCapability
 import twilio.twiml
-from django.utils.encoding import smart_str, smart_unicode
 
 import requests
 import urllib2
@@ -97,11 +96,10 @@ def call():
   print "saruto"
   print (to)
   #data = request.values.get('body')
-  data = request.values.get('Body', None)
+  data = request.values.get('Body')
   #body_value = request.values.get('Body', None)
   print "sarudata"
-  print smart_str(data)
-  #print smart_str(data)
+  print data
   print "stopdata"
   #print body_value
   strResponse = GetMethod(data)
