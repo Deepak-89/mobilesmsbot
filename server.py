@@ -24,8 +24,8 @@ AUTH_TOKEN = 'dc43003c977409f3412be46cea0fa5c8'
 # TwiML app outgoing connections will use
 APP_SID = 'MGb5d570f585d2d985509b1f61afbc4865'
 
-CALLER_ID = '+919637793593'
-CLIENT = 'jenny'
+CALLER_ID = '+17747766281'
+CLIENT = 'USB'
 
 #app = Flask(__name__)
 
