@@ -100,10 +100,10 @@ def call():
   print response
   
   if not (from_value and to):
-    resp.say("Message without number")
+    resp.message("Message without number")
     return str(resp)
   if (data!=0):
-    resp.say(response)
+    resp.message(response)
     return str(resp)
   from_client = from_value.startswith('client')
   caller_id = os.environ.get("CALLER_ID", CALLER_ID)
