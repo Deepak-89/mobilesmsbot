@@ -97,8 +97,9 @@ def call():
   print (to)
   #data = request.values.get('body')
   data = request.values.get('Body', None)
+  body_value = request.values.get('Body', None)
   print "sarudata"
-  print data
+  print body_value
   strResponse = GetMethod(data)
   print("After GetMethod")
   response = ProcessAPIAIResponse(strResponse)
