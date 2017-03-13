@@ -99,7 +99,8 @@ def call():
   data = request.values.get('Body', None)
   #body_value = request.values.get('Body', None)
   print "sarudata"
-  print data
+  print data.decode('utf-8')
+  print data.decode('utf-16')
   print "stopdata"
   #print body_value
   strResponse = GetMethod(data)
