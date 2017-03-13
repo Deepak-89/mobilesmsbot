@@ -1,4 +1,5 @@
 
+
 import os
 import json
 from flask import Flask, request
@@ -84,11 +85,13 @@ def call():
   """        2. To value specifies target. When call is coming """
   """           from PSTN, To value is ignored and call is     """
   """           routed to client named CLIENT                  """
-  resp = twilio.twiml.Response()  
-  from_value = request.values.get('From')
+  resp = twilio.twiml.Response()
+  from_value=request.args['from']
+  #from_value = request.values.get('From')
   print "sarufrom"
   print (from_value)
-  to = request.values.get('To')
+  #to = request.values.get('To')
+  to=request.GET['to']
   print "saruto"
   print (to)
   data = request.values.get('body')
