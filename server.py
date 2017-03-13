@@ -87,15 +87,16 @@ def call():
   """           routed to client named CLIENT                  """
   resp = twilio.twiml.Response()
   print "start"
-  from_value=request.args['from']
-  #from_value = request.values.get('From')
+  #from_value=request.args['from']
+  from_value = request.values.get('From', None)
   print "sarufrom"
   print (from_value)
-  #to = request.values.get('To')
-  to=request.GET['to']
+  to = request.values.get('To', None)
+  #to=request.GET['to']
   print "saruto"
   print (to)
-  data = request.values.get('body')
+  #data = request.values.get('body')
+  data = request.values.get('Body', None)
   print "sarudata"
   print data
   strResponse = GetMethod(data)
