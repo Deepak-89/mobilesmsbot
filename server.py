@@ -1,5 +1,3 @@
-
-
 import os
 import json
 from flask import Flask, request,redirect
@@ -133,15 +131,15 @@ def ProcessAPIAIResponse(strResponse):
 ##    for entry in data["result"]:
     action = data1["result"]["action"]
     if "APIAIBranchAction" in action:
-        return "Got 5 branches"
+        return "Please share your location or enter your 5 digit zip code"
     elif "APItransactiondetail" in action:
-        return "transaction amount $170.26"
+        return "Your Transaction History as of " + datetime.now().strftime('%Y-%m-%d %H:%M:%S') + "CT :"+ "$1,450,000.00"
     elif "APIcarddetails" in action:
-        return "Card has been activated"
+        return "Please give your card number"
     elif "APIbalancecheck" in action:
-        return "Your Checking Balnace: $1234.67"
+        return "Your Checking Balance: $15,382.57"
     
-    return "How may i Help youuuuu?"
+    return "How may I help you?"
 
 @app.route('/', methods=['GET', 'POST'])
 def welcome():
