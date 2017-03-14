@@ -134,7 +134,7 @@ def ProcessAPIAIResponse(strResponse):
     if "APIAIBranchAction" in action:
         return "Please share your location or enter your 5 digit zip code"
     elif "APItransactiondetail" in action:
-        return "Your Transaction History as of " + datetime.now().strftime('%Y-%m-%d %H:%M:%S') + " CT :"+ " $1,450,000.00"
+        return "Your Transaction History as of " + datetime.now().strftime('%Y-%m-%d %H:%M:%S') + " CT :"+ " USD1,450,000.00"
     elif "APIcarddetails" in action:
         return "Please give your card number"
     elif "APIbalancecheck" in action:
