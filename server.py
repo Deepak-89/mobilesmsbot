@@ -139,6 +139,8 @@ def ProcessAPIAIResponse(strResponse):
         return "Please give your card number"
     elif "APIbalancecheck" in action:
         return "Your Checking Balance: $15,382.57"
+    elif "APIZIplocation" in action:
+        return "Top 5 ATMs are fetched"
     
     return "How may I help you?"
 
