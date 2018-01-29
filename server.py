@@ -18,13 +18,13 @@ except ImportError:
     import apiai
 
 # Account Sid and Auth Token can be found in your account dashboard
-ACCOUNT_SID = 'AC074af63c54728717d600a7b2641a1d72'
-AUTH_TOKEN = 'dc43003c977409f3412be46cea0fa5c8'
+ACCOUNT_SID = 'AC31a5a3324711e2e427c15f9b2ba558ed'
+AUTH_TOKEN = 'a2177fc1d6fd5454f733b49574f1b2ae'
 
 # TwiML app outgoing connections will use
-APP_SID = 'MGb5d570f585d2d985509b1f61afbc4865'
+APP_SID = 'MGbdaecce856a6ac21fbfaa535c9c2c88d'
 
-CALLER_ID = '+17747766281'
+CALLER_ID = '+17744257774'
 CLIENT = 'USB'
 
 #app = Flask(__name__)
